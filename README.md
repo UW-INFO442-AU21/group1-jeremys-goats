@@ -1,6 +1,13 @@
 # Food Cycle
 
+Created by Ryan Lee, Israel Martinez, Dana Rin, Alex Taylor, and Janvi Wadhawan
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Our Mission
+
+This app is designed to educate the end user on the meanings of different date labels in order to determine the actual expiration date of a given food item.\ 
+This will (hopefully) reduce food waste and thus 
 
 ## Available Scripts
 
