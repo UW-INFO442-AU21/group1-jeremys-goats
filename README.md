@@ -6,8 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Our Mission
 
-This app is designed to educate the end user on the meanings of different date labels in order to determine the actual expiration date of a given food item.\ 
-This will (hopefully) reduce food waste and thus 
+This app is designed to educate the end user on the meanings of different date labels in order to determine the actual expiration date of a given food item.\
+This will (hopefully) reduce food waste and thus reduce environmental impact and landfill emissions.
 
 ## Available Scripts
 
