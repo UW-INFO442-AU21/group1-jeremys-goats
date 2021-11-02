@@ -2,6 +2,7 @@
 
 Created by Ryan Lee, Israel Martinez, Danaa Rin, Alex Taylor, and Janvi Wadhawan
 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Our Mission
