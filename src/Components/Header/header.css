@@ -1,0 +1,24 @@
+a:visited {
+    border:none;
+    outline:none;
+    text-decoration:none;
+    color:inherit;
+    -webkit-tap-highlight-color: white;
+}
+
+.header, .headerMenu {
+    display: flex;
+}
+
+.header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerMenu {
+    justify-content: space-evenly;
+}
+
+.headerLink, .headerHeading {
+    padding: 10px;
+}
