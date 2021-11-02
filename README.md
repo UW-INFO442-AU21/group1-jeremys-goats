@@ -1,6 +1,6 @@
 # Food Cycle
 
-Created by Ryan Lee, Israel Martinez, Dana Rin, Alex Taylor, and Janvi Wadhawan
+Created by Ryan Lee, Israel R Martinez, Dana Rin, Alex Taylor, and Janvi Wadhawan
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
