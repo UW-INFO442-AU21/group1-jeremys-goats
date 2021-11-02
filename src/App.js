@@ -5,7 +5,11 @@ import {
   Route,
   Link
 } from "react-router-dom";
-// Test commit
+
+import Home from'./Pages/Home';
+import Guide from'./Pages/Guide';
+import About from'./Pages/About';
+import Resources from'./Pages/Resources';
 
 function App() {
   return (
@@ -17,10 +21,13 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
+              <Link to="/guide">Guide</Link>
+            </li>
+            <li>
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/resources">Resources</Link>
             </li>
           </ul>
         </nav>
@@ -28,14 +35,17 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-
+          <Route path="/resources">
+            <Resources/>
           </Route>
-          <Route path="/users">
-
+          <Route path="/about">
+            <About/>
+          </Route>
+          <Route path="/guide">
+            <Guide/>
           </Route>
           <Route path="/">
-
+            <Home/>
           </Route>
         </Switch>
       </div>
