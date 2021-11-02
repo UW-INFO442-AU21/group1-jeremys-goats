@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-// Test commit
+import { slide as Menu } from 'react-burger-menu';
 
 import Home from'./Pages/Home';
 import Guide from'./Pages/Guide';
@@ -15,23 +15,13 @@ import Resources from'./Pages/Resources';
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/guide">Guide</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/resources">Resources</Link>
-            </li>
-          </ul>
-        </nav>
+      <Menu right >
+        <Link to="/">Home</Link>
+        <Link to="/guide">Guide</Link>
+        <Link to="/about">About</Link>
+        <Link to="/resources">Resources</Link>
+      </Menu>
+      <div id="outer-container">
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
