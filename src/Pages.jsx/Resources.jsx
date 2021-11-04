@@ -1,7 +1,7 @@
 function Resources() {
     return (
         <div
-            // Resource cards will go here            
+            // Resource cards component will go here            
         />
     )
 }
