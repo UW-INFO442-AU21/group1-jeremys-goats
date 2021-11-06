@@ -6,19 +6,23 @@ a:visited {
     -webkit-tap-highlight-color: white;
 }
 
-.header, .headerMenu {
+.header, .header-menu {
     display: flex;
 }
 
 .header {
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 
-.headerMenu {
+.header-menu {
     justify-content: space-evenly;
 }
 
-.headerLink, .headerHeading {
+.header-link, .header-heading {
     padding: 10px;
+}
+
+.header-heading {
+    width: 100%;
 }
