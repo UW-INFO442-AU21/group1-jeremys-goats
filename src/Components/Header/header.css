@@ -1,0 +1,28 @@
+a:visited {
+    border:none;
+    outline:none;
+    text-decoration:none;
+    color:inherit;
+    -webkit-tap-highlight-color: white;
+}
+
+.header, .header-menu {
+    display: flex;
+}
+
+.header {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-menu {
+    justify-content: space-evenly;
+}
+
+.header-link, .header-heading {
+    padding: 10px;
+}
+
+.header-heading {
+    width: 100%;
+}
