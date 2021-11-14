@@ -1,7 +1,9 @@
+import { GuideForm } from "../Components/Guide/Guide"
+
 const Guide = () => {
     return (
         <div>
-            <p>Guide</p>
+            <GuideForm/>
         </div>
     )
 }
