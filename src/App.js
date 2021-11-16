@@ -3,38 +3,20 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
-// Test commit
 
 import Home from'./Pages/Home';
 import Guide from'./Pages/Guide';
 import About from'./Pages/About';
 import Resources from'./Pages/Resources';
+import Header from './Components/Header/Header';
 
 function App() {
+
   return (
     <Router>
+      <Header/>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/guide">Guide</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/resources">Resources</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/resources">
             <Resources/>
