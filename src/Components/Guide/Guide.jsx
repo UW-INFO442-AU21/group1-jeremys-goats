@@ -15,9 +15,9 @@ export function GuideForm() {
                 <option value="" disabled selected hidden>use by, sell by, best by</option>
                 {typeOptions.map(type => <option key={type}>{type}</option>)}
             </select><br/>
-            <input name="date" type="date" value={date}
+            <input className="date" type="date" value={date}
                 onChange={(e) => setDate(e.target.value)}/><br/>
-            <input name="product" type="text" value={name} placeholder="product name"
+            <input className="product" type="text" value={name} placeholder="product name"
                 onChange={(e) => setName(e.target.value)}/><br/>
             <button type="submit">Submit</button>
             <p>This {name} expires on {date}.</p>
