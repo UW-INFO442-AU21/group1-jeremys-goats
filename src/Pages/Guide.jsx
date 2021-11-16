@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { GuideForm } from "../Components/Guide/Guide"
 
 const Guide = () => {
     const [data, setData] = useState(null);
@@ -12,7 +13,7 @@ const Guide = () => {
     console.log(data)
     return (
         <div>
-            <p>Guide</p>
+            <GuideForm/>
         </div>
     )
 }
