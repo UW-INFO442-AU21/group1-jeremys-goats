@@ -1,8 +1,7 @@
-export function cards() {
+export function Cards() {
     return (
-        <div> 
-            //make container
-            //make cards
+        <div>
+            {/* cards go here */}
         </div>
     );
 }
