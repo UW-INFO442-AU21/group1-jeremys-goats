@@ -1,0 +1,26 @@
+form {
+    text-align: center;
+    
+}
+
+.dateType {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 242px;
+}
+
+.date {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 218px;
+}
+
+.product {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 218px;
+}
+
+button {
+    padding:10px;
+}
