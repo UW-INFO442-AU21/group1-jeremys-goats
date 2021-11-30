@@ -1,8 +1,7 @@
 import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
 import './guide.css';
-var customParseFormat = require('dayjs/plugin/customParseFormat');
-var localizedFormat = require('dayjs/plugin/localizedFormat');
+var customParseFormat = require('dayjs/plugin/customParseFormat')
 
 export function GuideForm() {
     const [dateType, setDateType] = useState("");
@@ -26,31 +25,24 @@ export function GuideForm() {
                 .then(elementData => setData(elementData))
     }, []);
 
+    const calcFridgeDate = () => {
+        const fridgeWords = name["Refrigerator"].split(' ');
+        let fridgeCase = fridgeWords.pop();
+        const fridgeTime = fridgeWords.pop();
 
-
-    useEffect(() => {
-        const calcDate = (type, setFn) => {
-            const fridgeWords = name[type].split(' ');
-            let fridgeCase = fridgeWords.pop();
-            const fridgeTime = fridgeWords.pop();
-    
-            if (fridgeCase.slice(-1) === 's') {
-                fridgeCase = fridgeCase.slice(0, -1);
-            }
-    
-            console.log(date);
-    
-            dayjs.extend(customParseFormat);
-            dayjs.extend(localizedFormat);
-            const startDate = dayjs(date, "YYYY-MM-DD");
-            const newDate = startDate.add(fridgeTime, fridgeCase);
-    
-            setFn(newDate.format("LL"));
+        if (fridgeCase.slice(-1) === 's') {
+            fridgeCase = fridgeCase.slice(0, -1);
         }
 
+        dayjs.extend(customParseFormat);
+        const startDate = dayjs(date, "MM-DD-YYYY");
+
+        startDate.add(fridgeTime, fridgeCase)
+    }
+
+    useEffect(() => {
         if (date !== "" && name !== "") {
-            calcDate("Refrigerator", setExpDateFridge);
-            calcDate("Freezer", setExpDateFreeze);
+            console.log(date);
         }
     }, [date, name])
 
@@ -110,11 +102,7 @@ export function GuideForm() {
                 
             <br/>
 
-            <p>
-                {
-                name === "" || date === "" ? `` : `${name["Item Name"]} will expire on ${expDateFridge} in the fridge and ${expDateFreeze} in the freezer.`
-                }
-            </p>
+            <p>{name === "" || date === "" ? `` : `${name["Item Name"]} will expire on ${date}.`}</p>
             <p>{dateType === "" ? `` : `Here is what ${dateType} means...`}</p>
         </form>
     );
