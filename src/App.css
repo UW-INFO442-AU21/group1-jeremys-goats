@@ -69,67 +69,26 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 /* About page text in order from header to subtext */
-.About-PageTxt {
-  position: absolute;
-  width: 1339px;
-  height: 211px;
-  left: 50px;
-  top: 231px;
-
+.AboutContext {
+  margin: auto;
   font-family: Comfortaa;
   font-style: normal;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 2rem;
   line-height: 45px;
   text-align: center;
   color: #99A210;
 }
-
-.problem {
-  position: absolute;
-  width: 1339px;
-  height: 211px;
-  left: 50px;
-  top: 100px;
-
-  font-family: Comfortaa;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 33px;
+header{
+  width: 100%;
   text-align: center;
+}
 
-  color: #000000;
-  }
-
-.Our-SolutionTxt {
-  position: absolute;
-  width: 1255px;
-  height: 119px;
-  left: 86px;
-  top: 473px;
-
+.SubText {
   font-family: Comfortaa;
   font-style: normal;
-  font-weight: bold;
-  font-size: 40px;
-  line-height: 45px;
-  text-align: center;
-
-  color: #99A210;
-  }
-
-.solution {
-  position: absolute;
-  width: 1255px;
-  height: 119px;
-  left: 86px;
-  top: 100px;
-
-  font-family: Comfortaa;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 30px;
+  font-weight: normal;
+  font-size: 1.875rem;
   line-height: 33px;
   text-align: center;
 
@@ -137,40 +96,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 
 
-.GoalTxt {
-  position: absolute;
-  width: 1339px;
-  height: 243px;
-  left: 51px;
-  top: 731px;
-
-  font-family: Comfortaa;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 40px;
-  line-height: 45px;
-  text-align: center;
-
-  color: #99A210;;
-    }
-    
-.goal {
-  position: absolute;
-  width: 1339px;
-  height: 243px;  
-  left: 51px;
-  top: 100px;
-  font-family: Comfortaa;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 33px;
-  text-align: center;
-    
-  color: #000000;
-    
-    }
-    
 /* Home page text */
 .main_body {
   font-family: Comfortaa;
