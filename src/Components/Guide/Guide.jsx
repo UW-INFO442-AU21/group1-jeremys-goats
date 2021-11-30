@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
 import './guide.css';
-var customParseFormat = require('dayjs/plugin/customParseFormat');
-var localizedFormat = require('dayjs/plugin/localizedFormat');
+let customParseFormat = require('dayjs/plugin/customParseFormat');
+let localizedFormat = require('dayjs/plugin/localizedFormat');
 
 export function GuideForm() {
     const [dateType, setDateType] = useState("");
