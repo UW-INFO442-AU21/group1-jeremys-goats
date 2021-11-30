@@ -4,13 +4,17 @@ import './guide.css';
 var customParseFormat = require('dayjs/plugin/customParseFormat');
 var localizedFormat = require('dayjs/plugin/localizedFormat');
 
-export function GuideForm() {
+export function GuideForm(props) {
     const [dateType, setDateType] = useState("");
     const [date, setDate] = useState("");
     const [name, setName] = useState("");
     const [data, setData] = useState(null);
     const [expDateFridge, setExpDateFridge] = useState("");
     const [expDateFreeze, setExpDateFreeze] = useState("");
+    const [addButton, setButton] = useState(false);
+    const [added, setAdded] = useState(false);
+    const addList = {};
+    const newList = [];
 
     useEffect(() => {
         fetch("csvjson.json")
@@ -51,6 +55,7 @@ export function GuideForm() {
         if (date !== "" && name !== "") {
             calcDate("Refrigerator", setExpDateFridge);
             calcDate("Freezer", setExpDateFreeze);
+            setButton(true);
         }
     }, [date, name])
 
@@ -58,6 +63,29 @@ export function GuideForm() {
         const formattedName = JSON.parse(item);
         console.log(formattedName);
         setName(formattedName);
+        setAdded(false);
+    }
+
+    const updateList = () => {
+        setAdded(true);
+        addList['dateType'] = dateType;
+        addList['date'] = date;
+        addList['name'] = name["Item Name"];
+        addList['expDateFridge'] = expDateFridge;
+        addList['expDateFreeze'] = expDateFreeze;
+        // newList.push(addList);
+        // setList();
+        if (props.listData != undefined) {
+            // newList.push(props.listData);
+            props.listData.map((item) => {
+                if (!newList.includes(item)) {
+                    newList.push(item);
+                }
+            });
+        }
+        newList.push(addList);
+        console.log(newList);
+        props.setList(newList);
     }
 
     const typeOptions = ['use by', 'sell by', 'best by'];
@@ -87,14 +115,17 @@ export function GuideForm() {
             name="date" 
             type="date" 
             value={date}
-            onChange={(e) => setDate(e.target.value)}/>
+            onChange={(e) => {
+                setDate(e.target.value);
+                setAdded(false);
+            }}/>
             
             <br/>
 
             <select
                 name="product" 
                 type="name" 
-                value={name["Item Name"]} 
+                value={name["Freezer"]} 
                 onChange={(e) => wrangleName(e.target.value)}
             >
 
@@ -107,9 +138,17 @@ export function GuideForm() {
                 </option>
                 {data}
             </select>
-                
-            <br/>
 
+            <br/>
+            {addButton ?
+            <input 
+            name="add" 
+            type="button" 
+            value={added ? 'Added!' : `Add to my list`}
+            onClick={updateList}/> 
+                : null
+            }
+            <br/>
             <p>
                 {
                 name === "" || date === "" ? `` : `${name["Item Name"]} will expire on ${expDateFridge} in the fridge and ${expDateFreeze} in the freezer.`

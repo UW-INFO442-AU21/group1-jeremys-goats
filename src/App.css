@@ -109,3 +109,18 @@ Note: Beware of modifying this element as it can break the animations - you shou
       top: 220px;
 
     }
+
+.table {
+  padding: 1rem;
+  position: relative;
+  top: 300px;
+  border-spacing: 0;
+  border: 1px solid black;
+}
+
+th, td {
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}

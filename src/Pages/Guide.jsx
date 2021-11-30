@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { GuideForm } from "../Components/Guide/Guide"
 
-const Guide = () => {
-
+function Guide(props) {
+    
     return (
         <div>
-            <GuideForm />
+            <GuideForm setList={props.setList} listData={props.listData}/>
         </div>
     )
 }
