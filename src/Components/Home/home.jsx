@@ -2,17 +2,17 @@ import { useState, useEffect } from 'react';
 import styled from "styled-components";
 
 export function FoodList(props) {
-    const header = ['Product Name', 'expiration', 'fridge', 'freezer', 'remove'];
     let data = props.listData;
     const [rows, setRows] = useState([]);
-    let removeList = {};
+    let remove = {};
     const newList = [];
 
-    const updateList = (removeList) => {
+    const updateList = (item) => {
+        remove = item;
+        console.log(remove, 'remove this');
         rows.map((food) => {
-            if (!newList.includes(food) && (food != removeList)) {
+            if (!newList.includes(food) && (food != remove)) {
                 newList.push(food);
-                console.log(newList, 'updated');
             }
         });
     }
@@ -30,7 +30,7 @@ export function FoodList(props) {
                         <input 
                         type='button' 
                         value='x' 
-                        onClick={updateList(item)}/>
+                        onClick={updateList(item.target)}/>
                     </td>
                 </tr>
             )
@@ -39,14 +39,30 @@ export function FoodList(props) {
 
     return (
         <table className="table">
-            <thead className="thead">
-                <tr className="trow">
-                    {header.map(head => <th>{head}</th>)}
-                </tr>
-            </thead>
-            <tbody>
-                {rows}
-            </tbody>
+            <TableHead/>
+            <TableRows trows={rows} update={updateList}/>
         </table>
+    );
+}
+
+function TableHead() {
+    const header = ['Product Name', 'expiration', 'fridge', 'freezer', 'remove'];
+    return (
+        <thead className="thead">
+            <tr className="trow">
+                {header.map(head => <th>{head}</th>)}
+            </tr>
+        </thead>
+    );
+}
+
+function TableRows(props) {
+    let data = props.listData;
+    let rows = props.trows;
+    console.log(rows);
+    return (
+        <tbody>
+            {rows.length == 0 ? `There are no foods in your list. Go to the guide to add some!` : rows}
+        </tbody>
     );
 }
