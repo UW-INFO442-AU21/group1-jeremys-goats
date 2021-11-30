@@ -5,48 +5,48 @@ export function Cards() {
             <div class="row">
                 <div class="column">
                     <div class="card">
-                        <p>
-                            Article 1
-                        </p>
+                        <h2>
+                            <a href="https://zenhabits.net/50-tips-for-grocery-shopping/" target="_blank">Grocery Planning Tips</a>
+
+                        </h2>
                     </div>
                 </div>
                 <div class="column">
                     <div class="card">
-                        <p>
-                            Article 2
-                        </p>
+                        <h2>
+                            <a href="https://stefanieoconnell.com/stop-buying-stuff-dont-need/" target="_blank">How Not to Overbuy</a>
+                        </h2>
                     </div>
                 </div>
                 <div class="column">
                     <div class="card">
-                        <p>
-                            Article 3
-                        </p>
+                        <h2>
+                            <a href="https://www.feedingamerica.org/hunger-blog/what-donate-food-bank-and-what-avoid" target="_blank">What Foods You Can Donate</a>
+                        </h2>
                     </div>
                 </div>
-                
-                <div class="column">
+
+            </div>
+            <div class="column">
+                <div class="card">
+                    <h2>
+                        <a href="https://www.feedingamerica.org/find-your-local-foodbank" target="_blank">Find Your Local Food Bank</a>
+                    </h2>
                 </div>
-                <div class="column">
-                    <div class="card">
-                        <p>
-                            Article 4
-                        </p>
-                    </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <h2>
+                        <a href="https://www.4ocean.com/blogs/blog/11-sustainable-grocery-shopping-tips" target="_blank">How to Shop Sustainably</a>
+
+                    </h2>
                 </div>
-                <div class="column">
-                    <div class="card">
-                        <p>
-                            Article 5
-                        </p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <p>
-                            Article 6
-                        </p>
-                    </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <h2>
+                        <a href="https://clark.com/save-money/save-money-on-groceries/" target="_blank">Better Ways to Spend</a>
+                    </h2>
                 </div>
             </div>
         </div>

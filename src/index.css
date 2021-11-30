@@ -40,6 +40,7 @@ code {
 
 /* card styling */
 .card {
+  border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 16px;
   align-items: center;
@@ -47,7 +48,10 @@ code {
   margin-top: 50px;
   margin-left: 35px;
   margin-right: 35px;
+}
 
+h2 {
+  text-align: center;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
@@ -68,4 +72,9 @@ code {
   0 4px 4px rgba(0,0,0,0.12), 
   0 8px 8px rgba(0,0,0,0.12),
   0 16px 16px rgba(0,0,0,0.12);
+}
+
+.CardHeader {
+  text-align: center;
+  padding-top: 15px;
 }
