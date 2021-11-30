@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import './header.css';
 
-const MOBILE_SIZE = 523;
+const MOBILE_SIZE = 423;
 
 const Header = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= MOBILE_SIZE);
