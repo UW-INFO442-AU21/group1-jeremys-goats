@@ -67,3 +67,45 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+
+/* Home page text */
+.main_body {
+  font-family: Comfortaa;
+  font-style: normal; 
+  text-align: center;
+}
+.h1 {
+  position: relative;
+  top: 120px;
+
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 45px;
+  color: #99A210;
+}
+
+.text1 {
+  position: relative;
+  top: 110px;
+
+  font-size: 30px;
+  line-height: 33px;
+  color: #000000;
+  }
+  .text2 {
+    position: relative;
+    top: 220px;
+
+    font-size: 30px;
+    line-height: 33px;  
+    color: #000000;
+    }
+    .img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      position: relative;
+      top: 220px;
+
+    }
