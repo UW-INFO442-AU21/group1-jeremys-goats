@@ -73,6 +73,7 @@ export function GuideForm(props) {
         addList['name'] = name["Item Name"];
         addList['expDateFridge'] = expDateFridge;
         addList['expDateFreeze'] = expDateFreeze;
+        addList['removed'] = false;
         // newList.push(addList);
         // setList();
         if (props.listData != undefined) {
