@@ -9,7 +9,6 @@ const Home = (props) => {
             <p className="text1">A place where we bring more awareness to food waste and date label confusion.</p>
             <p className="text2">Scroll down to check you food date label </p>
             <Arrow className="img" />
-            {/* <p>{listData}</p> */}
             <FoodList setList={props.setList} listData={props.listData}/>
         </div>
     )
