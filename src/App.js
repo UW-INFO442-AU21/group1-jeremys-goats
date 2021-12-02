@@ -13,13 +13,16 @@ import Header from './Components/Header/Header';
 import { useState } from 'react';
 
 function App() {
-  const [list, setList] = useState([]);
+  const [list, passList] = useState([]);
   const yo = ['hi', 'hello'];
   
-  // const handleInputChange = event => {
-  //   const { addedList } = event.target;
-  //   setList(addedList);
-  // }
+  const setList = (event) => {
+    // const { addedList } = event.target;
+    // passList(addedList);
+    console.log(event, 'event');
+    console.log(event.length, 'event length')
+    passList(event);
+  }
   return (
     <Router>
       <Header/>

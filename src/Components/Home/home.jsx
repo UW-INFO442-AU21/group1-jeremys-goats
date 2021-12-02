@@ -2,21 +2,31 @@ import { useState, useEffect } from 'react';
 import styled from "styled-components";
 
 export function FoodList(props) {
-    //let data = props.listData;
-    // const [data, setData] = useState(props.listData);
-    const [rows, setRows] = useState([]);
-    const [empty, setEmpty] = useState(false);
+    const [rows, setRows] = useState(0);
 
+    const rowCount = (length) => {
+        setRows(length);
+        
+    }
+
+    const content = () => {
+        return (
+            <TableHead listData={props.listData}/>
+        );
+    }
     return (
-        <table className="table">
-            <TableHead/>
-            <TableRows listData={props.listData} setList={props.setList}/>
+        <>
+        {<table className="table">
+            <TableHead listData={props.listData}/>
+            <TableRows listData={props.listData} setList={props.setList} rowCount={rowCount}/>
         </table>
+        }
+        </>
     );
 }
 
 function TableHead() {
-    const header = ['Product Name', 'type', 'expiration', 'fridge', 'freezer', 'remove'];
+    const header = ['Product Name', 'Type', 'Expiry', 'Fridge', 'Freezer', 'Remove'];
     return (
         <thead className="thead">
             <tr className="trow">
@@ -29,7 +39,6 @@ function TableHead() {
 function TableRows(props) {
     let data = props.listData;
     const [rows, setRows] = useState([]);
-    const [newList, setNewList] = useState([]);
     
     useEffect(() => {
         let rowHolder = [];
@@ -41,15 +50,12 @@ function TableRows(props) {
                     rowHolder.push(
                         <TableRow listData={item} updateList={updateList}/>
                     );
-
                 }
             });
             props.setList(listHolder);
-        setRows(rowHolder);
+            setRows(rowHolder);
         }
-
-        
-
+        console.log(rowHolder.length, 'length');
         console.log(listHolder, 'new list');
     }, []);
 
@@ -58,23 +64,15 @@ function TableRows(props) {
             console.log(item, 'remove item');
             item.removed = true;
         }
-        if (data.length === 0) {
-            setRows([]);
-        }
-        console.log(rows.length, 'row count');
+        console.log(rows.length, 'length remove');
     }
 
     return (
         <>
-        {(rows.length === 0) || data === undefined ? <tbody>{`No foods in your list. Go to the guide to add some!`}</tbody>
-            : <tbody>{rows}</tbody>
-        }
+        <tbody>
+            {rows}
+        </tbody>
         </>
-        // <tbody>
-        //     {rows.length === 0 ? 
-        //                         <h3>{`No foods in your list. Go to the guide to add some!`}</h3>
-        //                         : rows}
-        // </tbody>
     );
 }
 

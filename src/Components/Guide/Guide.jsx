@@ -42,8 +42,6 @@ export function GuideForm(props) {
                 fridgeCase = fridgeCase.slice(0, -1);
             }
     
-            console.log(date);
-    
             dayjs.extend(customParseFormat);
             dayjs.extend(localizedFormat);
             const startDate = dayjs(date, "YYYY-MM-DD");
@@ -61,7 +59,6 @@ export function GuideForm(props) {
 
     const wrangleName = item => {
         const formattedName = JSON.parse(item);
-        console.log(formattedName);
         setName(formattedName);
         setAdded(false);
     }
@@ -74,10 +71,7 @@ export function GuideForm(props) {
         addList['expDateFridge'] = expDateFridge;
         addList['expDateFreeze'] = expDateFreeze;
         addList['removed'] = false;
-        // newList.push(addList);
-        // setList();
         if (props.listData != undefined) {
-            // newList.push(props.listData);
             props.listData.map((item) => {
                 if (!newList.includes(item)) {
                     newList.push(item);
@@ -86,6 +80,7 @@ export function GuideForm(props) {
         }
         newList.push(addList);
         console.log(newList);
+        console.log(newList.length, 'newList length')
         props.setList(newList);
     }
 
@@ -127,7 +122,10 @@ export function GuideForm(props) {
                 name="product" 
                 type="name" 
                 value={name["Freezer"]} 
-                onChange={(e) => wrangleName(e.target.value)}
+                onChange={(e) => {
+                    wrangleName(e.target.value)
+                    setAdded(false);
+                }}
             >
 
                 <option 
