@@ -14,7 +14,6 @@ import { useState } from 'react';
 
 function App() {
   const [list, setList] = useState([]);
-  const yo = ['hi', 'hello'];
   
   return (
     <Router>

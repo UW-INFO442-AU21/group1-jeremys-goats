@@ -8,13 +8,12 @@ export function GuideForm(props) {
     const [dateType, setDateType] = useState("");
     const [date, setDate] = useState("");
     const [name, setName] = useState("");
+    const [productName, setProductName] = useState("");
     const [data, setData] = useState(null);
     const [expDateFridge, setExpDateFridge] = useState("");
     const [expDateFreeze, setExpDateFreeze] = useState("");
     const [addButton, setButton] = useState(false);
     const [added, setAdded] = useState(false);
-    const addList = {};
-    const newList = [];
 
     useEffect(() => {
         fetch("csvjson.json")
@@ -60,8 +59,12 @@ export function GuideForm(props) {
     const wrangleName = item => {
         const formattedName = JSON.parse(item);
         setName(formattedName);
+        setProductName(item['Item Name']);
         setAdded(false);
     }
+
+    const addList = {};
+    const newList = [];
 
     const updateList = () => {
         setAdded(true);
@@ -79,9 +82,8 @@ export function GuideForm(props) {
             });
         }
         newList.push(addList);
-        console.log(newList);
-        console.log(newList.length, 'newList length')
         props.setList(newList);
+        props.type(dateType);
     }
 
     const typeOptions = ['use by', 'sell by', 'best by'];
@@ -92,7 +94,10 @@ export function GuideForm(props) {
                 className="dateType" 
                 type="dateType" 
                 value={dateType}
-                onChange={(e) => setDateType(e.target.value)}
+                onChange={(e) => {
+                    setDateType(e.target.value);
+                    props.type(e.target.value);
+                }}
             >
                 <option 
                     value="" 
@@ -121,9 +126,9 @@ export function GuideForm(props) {
             <select
                 name="product" 
                 type="name" 
-                value={name["Freezer"]} 
+                value={productName} 
                 onChange={(e) => {
-                    wrangleName(e.target.value)
+                    wrangleName(e.target.value);
                     setAdded(false);
                 }}
             >

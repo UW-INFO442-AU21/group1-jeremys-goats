@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 
 export function FoodList(props) {
     let data = props.listData;
-
-    console.log(data, 'export data');
     return (
         <>
         <table className="table">
@@ -31,7 +29,6 @@ function TableHead() {
 function TableRows(props) {
     let data = props.listData;
     const [rows, setRows] = useState([]);
-    console.log(data.length, 'rows parent');
     
     useEffect(() => {
         let rowHolder = [];
@@ -49,25 +46,14 @@ function TableRows(props) {
             props.rowCount(data.length);
         }
         props.setList(listHolder);
-        // props.rowCount(listHolder.length);
         setRows(rowHolder);
-        console.log(rowHolder.length, 'length');
-        console.log(listHolder, 'new list');
     }, []);
 
     const updateList = (item) => {
-        // if (data != undefined || data.length !== 0) {
-        //     console.log(item, 'remove item');
-        //     
-        // }
         item.removed = true;
-        console.log(item, 'remove item');
         let newList = data.filter(row => row.removed != true);
-        console.log(data, 'rows send');
         props.setList(newList);
     }
-
-    console.log(data.length, 'rows send');
 
     return (
         <>
