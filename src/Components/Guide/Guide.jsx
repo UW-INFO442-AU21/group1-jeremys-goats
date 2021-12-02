@@ -5,13 +5,20 @@ import './guide.css';
 let customParseFormat = require('dayjs/plugin/customParseFormat');
 let localizedFormat = require('dayjs/plugin/localizedFormat');
 
-export function GuideForm() {
+const GuideForm = ({
+    setList,
+    listData,
+    type
+}) => {
     const [dateType, setDateType] = useState("");
     const [date, setDate] = useState("");
     const [name, setName] = useState("");
+    const [productName, setProductName] = useState("");
     const [data, setData] = useState(null);
     const [expDateFridge, setExpDateFridge] = useState("");
     const [expDateFreeze, setExpDateFreeze] = useState("");
+    const [addButton, setButton] = useState(false);
+    const [added, setAdded] = useState(false);
 
     useEffect(() => {
         fetch("csvjson.json")
@@ -40,8 +47,6 @@ export function GuideForm() {
                 fridgeCase = fridgeCase.slice(0, -1);
             }
     
-            console.log(date);
-    
             dayjs.extend(customParseFormat);
             dayjs.extend(localizedFormat);
             const startDate = dayjs(date, "YYYY-MM-DD");
@@ -53,6 +58,7 @@ export function GuideForm() {
         if (date !== "" && name !== "") {
             calcDate("Refrigerator", setExpDateFridge);
             calcDate("Freezer", setExpDateFreeze);
+            setButton(true);
         }
     }, [date, name])
 
@@ -60,6 +66,32 @@ export function GuideForm() {
         const formattedName = JSON.parse(item.value);
         console.log(formattedName);
         setName(formattedName);
+        setProductName(item['Item Name']);
+        setAdded(false);
+    }
+
+    const addList = {};
+    const newList = [];
+
+    const updateList = () => {
+        setAdded(true);
+        addList['dateType'] = dateType;
+        addList['date'] = date;
+        addList['name'] = name["Item Name"];
+        addList['expDateFridge'] = expDateFridge;
+        addList['expDateFreeze'] = expDateFreeze;
+        addList['removed'] = false;
+        if (listData !== undefined) {
+           listData.forEach((item) => {
+                if (!newList.includes(item)) {
+                    newList.push(item);
+                }
+            });
+        }
+        newList.push(addList);
+        // setList(newList);
+        // type(dateType);
+        console.log(typeof(setList));
     }
 
     const typeOptions = [
@@ -88,18 +120,27 @@ export function GuideForm() {
                     onChange={wrangleName}/>
             </div>
 
-            <br/>
-            <div className="input-container">
-                <input 
-                className="dateType" 
-                name="date" 
-                type="date" 
-                value={date}
-                onChange={(e) => setDate(e.target.value)}/>
-            </div>
-                
+            <input 
+            name="date" 
+            type="date" 
+            value={date}
+            onChange={(e) => {
+                setDate(e.target.value);
+                setAdded(false);
+            }}/>
+            
             <br/>
 
+            <br/>
+            {addButton ?
+            <input 
+            name="add" 
+            type="button" 
+            value={added ? 'Added!' : `Add to my list`}
+            onClick={updateList}/> 
+                : null
+            }
+            <br/>
             <p>
                 {
                 name === "" || date === "" ? `` : `${name["Item Name"]} will expire on ${expDateFridge} in the fridge and ${expDateFreeze === "Invalid Date" ? "should not be frozen" : `${expDateFreeze} in the freezer.`}.`
@@ -109,3 +150,5 @@ export function GuideForm() {
         </form>
     );
 }
+
+export default GuideForm;

@@ -10,9 +10,13 @@ import Guide from'./Pages/Guide';
 import About from'./Pages/About';
 import Resources from'./Pages/Resources';
 import Header from './Components/Header/Header';
+import { useState } from 'react';
 
 function App() {
+  const [list, setList] = useState([]);
 
+  console.log(typeof(setList));
+  
   return (
     <Router>
       <Header/>
@@ -25,10 +29,14 @@ function App() {
             <About/>
           </Route>
           <Route path="/guide">
-            <Guide/>
+            <Guide 
+              setList={setList}
+              listData={list}/>
           </Route>
           <Route path="/">
-            <Home/>
+            <Home 
+              setList={setList}
+              listData={list}/>
           </Route>
         </Switch>
       </div>

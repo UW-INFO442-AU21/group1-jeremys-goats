@@ -15,6 +15,7 @@
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "^4.0.3",
     "react-select": "^5.2.1",
+    "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -40,8 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "jest": "^26.6.0"
   }
 }
