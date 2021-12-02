@@ -1,26 +1,18 @@
 import { useState, useEffect } from 'react';
-import styled from "styled-components";
 
 export function FoodList(props) {
-    const [rows, setRows] = useState(0);
+    let data = props.listData;
 
-    const rowCount = (length) => {
-        setRows(length);
-        
-    }
-
-    const content = () => {
-        return (
-            <TableHead listData={props.listData}/>
-        );
-    }
+    console.log(data, 'export data');
     return (
         <>
-        {<table className="table">
-            <TableHead listData={props.listData}/>
-            <TableRows listData={props.listData} setList={props.setList} rowCount={rowCount}/>
+        <table className="table">
+            {data.length == 0 ? <p>* Go to the Guide to add expiry foods *</p> :
+                <div>
+                    <TableHead/>
+                    <TableRows listData={data} setList={props.setList}/>
+                </div>}
         </table>
-        }
         </>
     );
 }
@@ -39,6 +31,7 @@ function TableHead() {
 function TableRows(props) {
     let data = props.listData;
     const [rows, setRows] = useState([]);
+    console.log(data.length, 'rows parent');
     
     useEffect(() => {
         let rowHolder = [];
@@ -48,24 +41,33 @@ function TableRows(props) {
                 if (!rowHolder.includes(item) && item.removed !== true) {
                     listHolder.push(item);
                     rowHolder.push(
-                        <TableRow listData={item} updateList={updateList}/>
+                        <TableRow food={item} updateList={updateList}/>
                     );
                 }
             });
-            props.setList(listHolder);
-            setRows(rowHolder);
+        } else {
+            props.rowCount(data.length);
         }
+        props.setList(listHolder);
+        // props.rowCount(listHolder.length);
+        setRows(rowHolder);
         console.log(rowHolder.length, 'length');
         console.log(listHolder, 'new list');
     }, []);
 
     const updateList = (item) => {
-        if (data != undefined) {
-            console.log(item, 'remove item');
-            item.removed = true;
-        }
-        console.log(rows.length, 'length remove');
+        // if (data != undefined || data.length !== 0) {
+        //     console.log(item, 'remove item');
+        //     
+        // }
+        item.removed = true;
+        console.log(item, 'remove item');
+        let newList = data.filter(row => row.removed != true);
+        console.log(data, 'rows send');
+        props.setList(newList);
     }
+
+    console.log(data.length, 'rows send');
 
     return (
         <>
@@ -77,8 +79,8 @@ function TableRows(props) {
 }
 
 function TableRow(props) {
-    let item = props.listData;
-    const [removed, setRemoved] = useState(item.removed);
+    let item = props.food;
+    const [removed, setRemoved] = useState(false);
 
     const updateList = () => {
         setRemoved(true);

@@ -214,11 +214,41 @@ Note: Beware of modifying this element as it can break the animations - you shou
     }
 
 .table {
-  padding: 1rem;
+  padding: 10px;
   position: relative;
-  top: 300px;
+  top: 250px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
   border-spacing: 0;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  width: 55%;
+  /* margin: 350px; */
+  margin-top: 0px;
+}
+@media (max-width: 500px) {
+  .table {
+    left: 5%;
+    bottom: 50%
+  }
+}
+@media (max-width: 450px) {
+  .table {
+    left: 20%;
+  }
+}
+@media (max-width: 350px) {
+  .table {
+    left: 30%;
+  }
+}
+@media (max-width: 300px) {
+  .table {
+    left: 50%;
+  }
 }
 
 th, td {

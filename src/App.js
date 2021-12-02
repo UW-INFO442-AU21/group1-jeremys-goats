@@ -13,16 +13,9 @@ import Header from './Components/Header/Header';
 import { useState } from 'react';
 
 function App() {
-  const [list, passList] = useState([]);
+  const [list, setList] = useState([]);
   const yo = ['hi', 'hello'];
   
-  const setList = (event) => {
-    // const { addedList } = event.target;
-    // passList(addedList);
-    console.log(event, 'event');
-    console.log(event.length, 'event length')
-    passList(event);
-  }
   return (
     <Router>
       <Header/>
