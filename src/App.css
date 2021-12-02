@@ -74,11 +74,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* About page text in order from header to subtext */
 .AboutContext {
-  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
   font-family: Comfortaa;
   font-style: normal;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.9rem;
   line-height: 45px;
   text-align: center;
   color: #99A210;
@@ -92,13 +95,13 @@ header{
   font-family: Comfortaa;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.875rem;
+  font-size: 1.775rem;
   line-height: 33px;
   text-align: center;
 
   color: #000000;
   }
-  
+
 /* Home page text */
 .main_body {
   font-family: Comfortaa;
