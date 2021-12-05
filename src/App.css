@@ -157,6 +157,14 @@ label {
 form {
   margin-bottom: 5rem;
 }
+/* About page video */
+.video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  position: relative;
+}
 
 .input-container {
   display: flex;
