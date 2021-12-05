@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 import { slide as Menu } from 'react-burger-menu';
 import { useEffect, useState } from 'react';
 
@@ -28,7 +29,7 @@ const Header = () => {
                     isOpen={menuOpen}
                 >
                     <Link onClick={() => closeMenu()} to="/">Home</Link>
-                    <Link onClick={() => closeMenu()} to="/guide">Guide</Link>
+                    <HashLink onClick={() => closeMenu()} to="/#guide">Guide</HashLink>
                     <Link onClick={() => closeMenu()} to="/about">About</Link>
                     <Link onClick={() => closeMenu()} to="/resources">Resources</Link>
                 </Menu>
@@ -37,7 +38,7 @@ const Header = () => {
             {!isMobile &&
                 <div className="header-menu">
                     <Link className="header-link" to="/">Home</Link>
-                    <Link className="header-link" to="/guide">Guide</Link>
+                    <HashLink className="header-link" to="/#guide">Guide</HashLink>
                     <Link className="header-link" to="/about">About</Link>
                     <Link className="header-link" to="/resources">Resources</Link>
                 </div>

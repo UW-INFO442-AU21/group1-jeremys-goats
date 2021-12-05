@@ -1,14 +1,17 @@
 import dayjs from 'dayjs';
+import Select from 'react-select'
 import { useState, useEffect } from 'react';
 import './guide.css';
-var customParseFormat = require('dayjs/plugin/customParseFormat');
-var localizedFormat = require('dayjs/plugin/localizedFormat');
+let customParseFormat = require('dayjs/plugin/customParseFormat');
+let localizedFormat = require('dayjs/plugin/localizedFormat');
 
-export function GuideForm(props) {
+const GuideForm = ({
+    setList,
+    listData
+}) => {
     const [dateType, setDateType] = useState("");
     const [date, setDate] = useState("");
     const [name, setName] = useState("");
-    const [productName, setProductName] = useState("");
     const [data, setData] = useState(null);
     const [expDateFridge, setExpDateFridge] = useState("");
     const [expDateFreeze, setExpDateFreeze] = useState("");
@@ -19,17 +22,16 @@ export function GuideForm(props) {
         fetch("csvjson.json")
                 .then(res => res.json())
                 .then(jsonData => 
-                    jsonData.map(
-                        item => 
-                            <option key={item["Item Name"]} label={item["Item Name"]} value={JSON.stringify(item)}>
-                                {item["Item Name"]}
-                            </option>
-                        )
+                    jsonData.map(item => {
+                        const obj = {
+                            value: JSON.stringify(item),
+                            label: item["Item Name"]
+                        }
+                        return obj;
+                    })
                 )
                 .then(elementData => setData(elementData))
     }, []);
-
-
 
     useEffect(() => {
         const calcDate = (type, setFn) => {
@@ -57,60 +59,77 @@ export function GuideForm(props) {
     }, [date, name])
 
     const wrangleName = item => {
-        const formattedName = JSON.parse(item);
+        const formattedName = JSON.parse(item.value);
+        console.log(formattedName);
         setName(formattedName);
-        setProductName(item['Item Name']);
         setAdded(false);
     }
 
-    const addList = {};
-    const newList = [];
+    
 
     const updateList = () => {
-        setAdded(true);
-        addList['dateType'] = dateType;
-        addList['date'] = date;
-        addList['name'] = name["Item Name"];
-        addList['expDateFridge'] = expDateFridge;
-        addList['expDateFreeze'] = expDateFreeze;
-        addList['removed'] = false;
-        if (props.listData != undefined) {
-            props.listData.map((item) => {
-                if (!newList.includes(item)) {
-                    newList.push(item);
-                }
-            });
+        const addList = {};
+        const newList = [...listData];
+        let i = 0;
+        let itemInList = false;
+        while (!itemInList && i < listData.length) {
+            itemInList = listData[i].name === name["Item Name"] && listData[i].date === date;
+            i++;
         }
-        newList.push(addList);
-        props.setList(newList);
-        props.type(dateType);
+        if (!itemInList) {
+            addList['name'] = name["Item Name"];
+            addList['date'] = date;
+            addList['expDateFridge'] = expDateFridge;
+            addList['expDateFreeze'] = expDateFreeze;
+            
+            newList.push(addList);
+            setList(newList);
+        }
+        setAdded(true);
     }
 
-    const typeOptions = ['use by', 'sell by', 'best by'];
+    const typeOptions = [
+        {value: "use by", label: "use by"},
+        {value: "sell by", label: "sell by"},
+        {value: "best by", label: "best by"}
+    ];
+
+    const dateTypeInfo = value => {
+        switch(value) {
+            case "use by":
+                setDateType("According to the USDA, \"use by\" date is the last date recommended for the use of the product while at peak quality. It is not a safety date.");
+                break;
+            case "sell by":
+                setDateType("According to the USDA, \"sell by\" date tells the store how long to display the product for sale for inventory management. It is not a safety date.");
+                break;
+            case "best by":
+                setDateType("According to the USDA, \"best by\" date indicates when a product will be of best flavor or quality.  It is not a purchase or safety date.");
+                break;
+            default:
+                break;
+        }
+    }
     
     return (
         <form>
-            <select 
-                className="dateType" 
-                type="dateType" 
-                value={dateType}
-                onChange={(e) => {
-                    setDateType(e.target.value);
-                    props.type(e.target.value);
-                }}
-            >
-                <option 
-                    value="" 
-                    disabled 
-                    selected 
-                    hidden
-                    >use by, sell by, best by
-                </option>
-                {typeOptions.map(type => <option key={type}>{type}</option>)}
-
-            </select>
-            
+            <h2>Find out what the date label actually means:</h2>
+            <div className={"input-container"}>
+                <Select 
+                    className={"guide-select"}
+                    placeholder={"What does your expiry label say?"} 
+                    options={typeOptions} 
+                    onChange={item => dateTypeInfo(item.value)}/>
+            </div>
+            <p>{dateType}</p>
+            <h2>Find out when your food actually goes bad:</h2>
             <br/>
+            <div className="input-container">
+                <Select 
+                    className={"guide-select"}
+                    placeholder={"Select your grocery item"} 
+                    options={data} 
+                    onChange={wrangleName}/>
+            </div>
 
             <input 
             name="date" 
@@ -122,26 +141,6 @@ export function GuideForm(props) {
             }}/>
             
             <br/>
-
-            <select
-                name="product" 
-                type="name" 
-                value={productName} 
-                onChange={(e) => {
-                    wrangleName(e.target.value);
-                    setAdded(false);
-                }}
-            >
-
-                <option 
-                    value="" 
-                    disabled 
-                    selected 
-                    hidden
-                    >Chooose a grocery item
-                </option>
-                {data}
-            </select>
 
             <br/>
             {addButton ?
@@ -155,10 +154,11 @@ export function GuideForm(props) {
             <br/>
             <p>
                 {
-                name === "" || date === "" ? `` : `${name["Item Name"]} will expire on ${expDateFridge} in the fridge and ${expDateFreeze} in the freezer.`
+                name === "" || date === "" ? `` : `${name["Item Name"]} will expire on ${expDateFridge} in the fridge and ${expDateFreeze === "Invalid Date" ? "should not be frozen" : `${expDateFreeze} in the freezer.`}.`
                 }
             </p>
-            <p>{dateType === "" ? `` : `Here is what ${dateType} means...`}</p>
         </form>
     );
 }
+
+export default GuideForm;

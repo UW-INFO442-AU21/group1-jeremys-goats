@@ -27,3 +27,10 @@ p {
 button {
     padding:10px;
 }
+
+.dateType {
+    border-width: 1px;
+    border-color: #EFEBEB;
+    border-radius: 5px;
+    height: 1rem;
+}
