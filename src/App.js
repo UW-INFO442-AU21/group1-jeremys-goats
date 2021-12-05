@@ -4,15 +4,18 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { useState } from 'react';
 
 import Home from'./Pages/Home';
-import Guide from'./Pages/Guide';
 import About from'./Pages/About';
 import Resources from'./Pages/Resources';
 import Header from './Components/Header/Header';
+import React from "react";
+import ReactPlayer from 'react-player';
+
 
 function App() {
-
+  const [list, setList] = useState([]);
   return (
     <Router>
       <Header/>
@@ -23,12 +26,9 @@ function App() {
           </Route>
           <Route path="/about">
             <About/>
-          </Route>
-          <Route path="/guide">
-            <Guide/>
-          </Route>
+          </Route>     
           <Route path="/">
-            <Home/>
+            <Home list={list} setList={setList}/>
           </Route>
         </Switch>
       </div>

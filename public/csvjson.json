@@ -1,0 +1,312 @@
+[
+	{
+		"Item Name": "Apples",
+		"Refrigerator": "4 to 6 weeks",
+		"Freezer": "8 months"
+	},
+	{
+		"Item Name": "Asparagus",
+		"Refrigerator": "3 to 4 days",
+		"Freezer": "5 months"
+	},
+	{
+		"Item Name": "Avocados",
+		"Refrigerator": "3 to 4 days",
+		"Freezer": "8 months"
+	},
+	{
+		"Item Name": "Bacon",
+		"Refrigerator": "7 days",
+		"Freezer": "1 month"
+	},
+	{
+		"Item Name": "Bagged greens",
+		"Refrigerator": "3 to 5 days",
+		"Freezer": "Does not freeze well"
+	},
+	{
+		"Item Name": "Bananas",
+		"Refrigerator": "3 days",
+		"Freezer": "2 to 3 months"
+	},
+	{
+		"Item Name": "Blueberries",
+		"Refrigerator": "1 to 2 weeks",
+		"Freezer": "8 to 12 months"
+	},
+	{
+		"Item Name": "Boil Egg",
+		"Refrigerator": "1 week",
+		"Freezer": "Don’t freeze"
+	},
+	{
+		"Item Name": "Broccoli",
+		"Refrigerator": "3 to 5 days",
+		"Freezer": "10 to 12 months"
+	},
+	{
+		"Item Name": "Brussels sprouts",
+		"Refrigerator": "3 to 5 days",
+		"Freezer": "10 to 12 months"
+	},
+	{
+		"Item Name": "Cabbage",
+		"Refrigerator": "1 to 2 weeks",
+		"Freezer": "10 to 12 months"
+	},
+	{
+		"Item Name": "Canned seafood after opening (Pantry, 5 years)",
+		"Refrigerator": "3 - 4 days",
+		"Freezer": "2 months"
+	},
+	{
+		"Item Name": "Carrots",
+		"Refrigerator": "2 to 3 weeks",
+		"Freezer": "10 to 12 months"
+	},
+	{
+		"Item Name": "Cauliflower",
+		"Refrigerator": "3 to 5 days",
+		"Freezer": "10 to 12 months"
+	},
+	{
+		"Item Name": "Celery",
+		"Refrigerator": "1 to 2 weeks",
+		"Freezer": "10 to 12 months"
+	},
+	{
+		"Item Name": "Chicken or turkey, parts",
+		"Refrigerator": "1 - 2 days",
+		"Freezer": "9 months"
+	},
+	{
+		"Item Name": "Chicken or turkey, whole",
+		"Refrigerator": "1 - 2 days",
+		"Freezer": "1 year"
+	},
+	{
+		"Item Name": "Chops",
+		"Refrigerator": "3 - 5 days",
+		"Freezer": "4 - 6 months"
+	},
+	{
+		"Item Name": "Citrus fruits - orange, grapefruit, etc.",
+		"Refrigerator": "10 to 21 days",
+		"Freezer": "4 to 6 months"
+	},
+	{
+		"Item Name": "Commercial brand vacuum-packed dinners with USDA seal, unopened",
+		"Refrigerator": "2 weeks",
+		"Freezer": "Don't Freeze"
+	},
+	{
+		"Item Name": "Cooked fish",
+		"Refrigerator": "3 - 4 days",
+		"Freezer": "4 - 6 months"
+	},
+	{
+		"Item Name": "Cooked poultry dishes",
+		"Refrigerator": "3 - 4 days",
+		"Freezer": "4 - 6 months"
+	},
+	{
+		"Item Name": "Corn on the cob",
+		"Refrigerator": "1 to 2 days",
+		"Freezer": "8 months"
+	},
+	{
+		"Item Name": "Cucumbers",
+		"Refrigerator": "4 to 6 days",
+		"Freezer": "Does not freeze well"
+	},
+	{
+		"Item Name": "Dried beans, lentils or split peas (Cooked)",
+		"Refrigerator": "3 to 4 days",
+		"Freezer": "6 months"
+	},
+	{
+		"Item Name": "Dried fruit",
+		"Refrigerator": "6 months",
+		"Freezer": ""
+	},
+	{
+		"Item Name": "Fatty fish",
+		"Refrigerator": "1 - 2 days",
+		"Freezer": "2 - 3 months"
+	},
+	{
+		"Item Name": "Fresh Raw Egg",
+		"Refrigerator": "3 - 5 weeks",
+		"Freezer": "Don’t freeze"
+	},
+	{
+		"Item Name": "Fresh shrimp, scallops, crawfish, squid",
+		"Refrigerator": "1 - 2 days",
+		"Freezer": "3 - 6 months"
+	},
+	{
+		"Item Name": "Fried chicken",
+		"Refrigerator": "3 - 4 days",
+		"Freezer": "4 months"
+	},
+	{
+		"Item Name": "Giblets",
+		"Refrigerator": "1 - 2 days",
+		"Freezer": "3 - 4 months"
+	},
+	{
+		"Item Name": "Grapes",
+		"Refrigerator": "1 week",
+		"Freezer": "1 month"
+	},
+	{
+		"Item Name": "Ground turkey, veal, pork, lamb",
+		"Refrigerator": "1 - 2 days",
+		"Freezer": "3 - 4 months"
+	},
+	{
+		"Item Name": "Ham, fully cooked, whole",
+		"Refrigerator": "7 days",
+		"Freezer": "1 - 2 months"
+	},
+	{
+		"Item Name": "Hamburger & stew meats",
+		"Refrigerator": "1 - 2 days",
+		"Freezer": "3 - 4 months"
+	},
+	{
+		"Item Name": "Hot dogs - opened package",
+		"Refrigerator": "1 week",
+		"Freezer": "1 - 2 months"
+	},
+	{
+		"Item Name": "Hot dogs - unopened package",
+		"Refrigerator": "2 weeks",
+		"Freezer": "1 - 2 months"
+	},
+	{
+		"Item Name": "Lean fish",
+		"Refrigerator": "1 - 2 days",
+		"Freezer": "6 - 8 months"
+	},
+	{
+		"Item Name": "Lunch meats - opened package",
+		"Refrigerator": "3 - 5 days",
+		"Freezer": "1 - 2 months"
+	},
+	{
+		"Item Name": "Lunch meats - unopened package",
+		"Refrigerator": "2 weeks",
+		"Freezer": "1 - 2 months"
+	},
+	{
+		"Item Name": "Melons",
+		"Refrigerator": "2 weeks",
+		"Freezer": "1 month for balled melon"
+	},
+	{
+		"Item Name": "Onions",
+		"Refrigerator": "2 months",
+		"Freezer": "10 to 12 months"
+	},
+	{
+		"Item Name": "Peaches, nectarines, plums or pears",
+		"Refrigerator": "3 - 5 days",
+		"Freezer": "8 to 12 months"
+	},
+	{
+		"Item Name": "Pieces, plain",
+		"Refrigerator": "3 - 4 days",
+		"Freezer": "4 months"
+	},
+	{
+		"Item Name": "Pineapple",
+		"Refrigerator": "5 to 7 days",
+		"Freezer": "8 to 12 months"
+	},
+	{
+		"Item Name": "Potatoes",
+		"Refrigerator": "3 to 4 days",
+		"Freezer": "10 to 12 months"
+	},
+	{
+		"Item Name": "Pre-stuffed pork & lamb chops, chicken breasts stuffed w/dressing",
+		"Refrigerator": "1 day",
+		"Freezer": "Don't Freeze"
+	},
+	{
+		"Item Name": "Raw yolks, whites",
+		"Refrigerator": "2 - 4 days",
+		"Freezer": "1 year"
+	},
+	{
+		"Item Name": "Roasts",
+		"Refrigerator": "3 - 5 days",
+		"Freezer": "4 - 12 months"
+	},
+	{
+		"Item Name": "Sausage, raw from pork, beef, chicken, or turkey",
+		"Refrigerator": "1 - 2 days",
+		"Freezer": "1 - 2 months"
+	},
+	{
+		"Item Name": "Smoked breakfast links, patties",
+		"Refrigerator": "7 days",
+		"Freezer": "1 - 2 months"
+	},
+	{
+		"Item Name": "Smoked fish",
+		"Refrigerator": "14 days",
+		"Freezer": "2 months"
+	},
+	{
+		"Item Name": "Spinach or leaf lettuce",
+		"Refrigerator": "3 to 7 days",
+		"Freezer": "10 to 12 months"
+	},
+	{
+		"Item Name": "Steaks",
+		"Refrigerator": "3 - 5 days",
+		"Freezer": "6 - 12 months"
+	},
+	{
+		"Item Name": "Store-cooked convenience meals",
+		"Refrigerator": "3 - 4 days",
+		"Freezer": "Don't Freeze"
+	},
+	{
+		"Item Name": "Store-prepared (or homemade) egg, chicken, tuna, ham, macaroni salads",
+		"Refrigerator": "3 - 5 days",
+		"Freezer": "Don't Freeze"
+	},
+	{
+		"Item Name": "Strawberries",
+		"Refrigerator": "2 to 3 days",
+		"Freezer": "8 to 12 months"
+	},
+	{
+		"Item Name": "Summer squash or zucchini",
+		"Refrigerator": "4 to 5 days",
+		"Freezer": "10 to 12 months"
+	},
+	{
+		"Item Name": "Tomatoes",
+		"Refrigerator": "1 to 2 days if ripe, otherwise store at room temperature",
+		"Freezer": "2 months"
+	},
+	{
+		"Item Name": "Variety meats (tongue, kidneys, liver, heart, chitterlings)",
+		"Refrigerator": "1 - 2 days",
+		"Freezer": "3 - 4 months"
+	},
+	{
+		"Item Name": "Vegetable or meat-added & mixtures of them",
+		"Refrigerator": "3 - 4 days",
+		"Freezer": "2 - 3 months"
+	},
+	{
+		"Item Name": "Winter squash",
+		"Refrigerator": "1 to 2 weeks (cut)",
+		"Freezer": "10 to 12 months"
+	}
+]

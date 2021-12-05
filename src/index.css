@@ -58,9 +58,7 @@ h2 {
 /* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 600px) {
   .column {
-    width: 100%;<div className="icon">
-    <img src="icons/grocery.png" alt="Bag full of groceries"></img>
-</div>
+    width: 100%;
     display: block;
     margin-bottom: 20px;
     margin-top: 50px;
