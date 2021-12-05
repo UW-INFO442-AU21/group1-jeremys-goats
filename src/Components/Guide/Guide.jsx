@@ -7,11 +7,13 @@ let localizedFormat = require('dayjs/plugin/localizedFormat');
 
 const GuideForm = ({
     setList,
-    listData
+    listData,
+    type
 }) => {
     const [dateType, setDateType] = useState("");
     const [date, setDate] = useState("");
     const [name, setName] = useState("");
+    const [productName, setProductName] = useState("");
     const [data, setData] = useState(null);
     const [expDateFridge, setExpDateFridge] = useState("");
     const [expDateFreeze, setExpDateFreeze] = useState("");
@@ -32,6 +34,8 @@ const GuideForm = ({
                 )
                 .then(elementData => setData(elementData))
     }, []);
+
+
 
     useEffect(() => {
         const calcDate = (type, setFn) => {
@@ -62,30 +66,32 @@ const GuideForm = ({
         const formattedName = JSON.parse(item.value);
         console.log(formattedName);
         setName(formattedName);
+        setProductName(item['Item Name']);
         setAdded(false);
     }
 
-    
+    const addList = {};
+    const newList = [];
 
     const updateList = () => {
-        const addList = {};
-        const newList = [...listData];
-        let i = 0;
-        let itemInList = false;
-        while (!itemInList && i < listData.length) {
-            itemInList = listData[i].name === name["Item Name"] && listData[i].date === date;
-            i++;
-        }
-        if (!itemInList) {
-            addList['name'] = name["Item Name"];
-            addList['date'] = date;
-            addList['expDateFridge'] = expDateFridge;
-            addList['expDateFreeze'] = expDateFreeze;
-            
-            newList.push(addList);
-            setList(newList);
-        }
         setAdded(true);
+        addList['dateType'] = dateType;
+        addList['date'] = date;
+        addList['name'] = name["Item Name"];
+        addList['expDateFridge'] = expDateFridge;
+        addList['expDateFreeze'] = expDateFreeze;
+        addList['removed'] = false;
+        if (listData !== undefined) {
+           listData.forEach((item) => {
+                if (!newList.includes(item)) {
+                    newList.push(item);
+                }
+            });
+        }
+        newList.push(addList);
+        // setList(newList);
+        // type(dateType);
+        console.log(typeof(setList));
     }
 
     const typeOptions = [
@@ -93,22 +99,6 @@ const GuideForm = ({
         {value: "sell by", label: "sell by"},
         {value: "best by", label: "best by"}
     ];
-
-    const dateTypeInfo = value => {
-        switch(value) {
-            case "use by":
-                setDateType("According to the USDA, \"use by\" date is the last date recommended for the use of the product while at peak quality. It is not a safety date.");
-                break;
-            case "sell by":
-                setDateType("According to the USDA, \"sell by\" date tells the store how long to display the product for sale for inventory management. It is not a safety date.");
-                break;
-            case "best by":
-                setDateType("According to the USDA, \"best by\" date indicates when a product will be of best flavor or quality.  It is not a purchase or safety date.");
-                break;
-            default:
-                break;
-        }
-    }
     
     return (
         <form>
@@ -118,9 +108,8 @@ const GuideForm = ({
                     className={"guide-select"}
                     placeholder={"What does your expiry label say?"} 
                     options={typeOptions} 
-                    onChange={item => dateTypeInfo(item.value)}/>
+                    onChange={item => setDateType(item.value)}/>
             </div>
-            <p>{dateType}</p>
             <h2>Find out when your food actually goes bad:</h2>
             <br/>
             <div className="input-container">
@@ -157,6 +146,7 @@ const GuideForm = ({
                 name === "" || date === "" ? `` : `${name["Item Name"]} will expire on ${expDateFridge} in the fridge and ${expDateFreeze === "Invalid Date" ? "should not be frozen" : `${expDateFreeze} in the freezer.`}.`
                 }
             </p>
+            <p>{dateType === "" ? `` : `Here is what ${dateType} means...`}</p>
         </form>
     );
 }

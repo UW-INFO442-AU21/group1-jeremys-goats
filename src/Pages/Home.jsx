@@ -1,12 +1,8 @@
 import { ReactComponent as Arrow } from '../img/arrow_1.svg';
 import { FoodList } from '../Components/Home/home';
-import GuideForm from '../Components/Guide/Guide'
+import Guide from './Guide';
 
-const Home = ({
-    setList,
-    list
-}) => {
-    
+const Home = (props) => {
     return (
         <div className="container">
             <section className="main_body content">
@@ -18,8 +14,8 @@ const Home = ({
                 </div>
             </section>
             <section id="guide">
-                <GuideForm setList={setList} listData={list} />
-                <FoodList setList={setList} listData={list} />
+            <Guide props={props} />
+            <FoodList setList={props.setList} listData={props.listData}/>
             </section>
         </div>
 
