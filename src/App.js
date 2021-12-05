@@ -10,9 +10,16 @@ import Guide from'./Pages/Guide';
 import About from'./Pages/About';
 import Resources from'./Pages/Resources';
 import Header from './Components/Header/Header';
+import { useState } from 'react';
+import React from "react";
+import ReactPlayer from 'react-player'
+
 
 function App() {
+  const [list, setList] = useState([]);
 
+  console.log(typeof(setList));
+  
   return (
     <Router>
       <Header/>
@@ -25,10 +32,14 @@ function App() {
             <About/>
           </Route>
           <Route path="/guide">
-            <Guide/>
+            <Guide 
+              setList={setList}
+              listData={list}/>
           </Route>
           <Route path="/">
-            <Home/>
+            <Home 
+              setList={setList}
+              listData={list}/>
           </Route>
         </Switch>
       </div>

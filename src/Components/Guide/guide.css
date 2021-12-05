@@ -1,0 +1,36 @@
+form {
+    text-align: center;
+}
+
+p {
+    padding: 10px;
+}
+
+.dateType {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 242px;
+}
+
+.date {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 218px;
+}
+
+.product {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 218px;
+}
+
+button {
+    padding:10px;
+}
+
+.dateType {
+    border-width: 1px;
+    border-color: #EFEBEB;
+    border-radius: 5px;
+    height: 1rem;
+}
