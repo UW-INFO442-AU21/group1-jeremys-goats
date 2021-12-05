@@ -1,96 +1,80 @@
-import { useState, useEffect } from 'react';
-
-export function FoodList(props) {
-    let data = props.listData;
+export const FoodList = ({
+    setList,
+    listData
+}) => {
+    let data = listData;
+    console.log(data);
     return (
         <>
-        <table className="table">
-            {data.length == 0 ? <p>* Go to the Guide to add expiry foods *</p> :
-                <div>
-                    <TableHead/>
-                    <TableRows listData={data} setList={props.setList}/>
-                </div>}
-        </table>
+        {
+        data.length === 0 ? 
+        <></>
+        :
+            <table className="table">
+                <TableHead/>
+                <TableRows listData={data} setList={setList}/>
+            </table>
+        }
         </>
     );
 }
 
 function TableHead() {
-    const header = ['Product Name', 'Type', 'Expiry', 'Fridge', 'Freezer', 'Remove'];
+    const header = ['Product Name', 'Date Bought', 'Fridge', 'Freezer', 'Remove'];
     return (
         <thead className="thead">
             <tr className="trow">
-                {header.map(head => <th>{head}</th>)}
+                {header.map(head => <th key={head}>{head}</th>)}
             </tr>
         </thead>
     );
 }
 
-function TableRows(props) {
-    let data = props.listData;
-    const [rows, setRows] = useState([]);
-    
-    useEffect(() => {
-        let rowHolder = [];
-        let listHolder = [];
-        if (data != undefined) {
-            data.map((item) => {
-                if (!rowHolder.includes(item) && item.removed !== true) {
-                    listHolder.push(item);
-                    rowHolder.push(
-                        <TableRow food={item} updateList={updateList}/>
-                    );
-                }
-            });
-        } else {
-            props.rowCount(data.length);
-        }
-        props.setList(listHolder);
-        setRows(rowHolder);
-    }, []);
+const TableRows = ({
+    listData,
+    setList
+}) => {
 
-    const updateList = (item) => {
-        item.removed = true;
-        let newList = data.filter(row => row.removed != true);
-        props.setList(newList);
-    }
+    let data = listData;
+
+    let rows = data.map((food, i) => <TableRow food={food} setList={setList} listData={listData} index={i} />)
+
 
     return (
-        <>
         <tbody>
             {rows}
         </tbody>
-        </>
     );
 }
 
-function TableRow(props) {
-    let item = props.food;
-    const [removed, setRemoved] = useState(false);
+const TableRow = ({
+    food,
+    setList,
+    listData,
+    index
+}) => {
+    let item = food;
 
     const updateList = () => {
-        setRemoved(true);
-        item['removed'] = removed;
-        props.updateList(item);
+        const newList = [...listData];
+        newList.splice(index, 1);
+        setList(newList);
     }
 
     return (
-        <>
-        {removed ? null : 
-            <tr>
-                <td>{item['name']}</td>
-                <td>{item['dateType'] === '' ? `---` : item['dateType']}</td>
-                <td>{item['date']}</td>
-                <td>{item['expDateFridge']}</td>
-                <td>{item['expDateFreeze']}</td>
-                <td>
-                    <input 
-                    type='button' 
-                    value={`X`} 
-                    onClick={updateList}/>
-                </td>
-            </tr>
-        }
-        </>
+        <tr>
+            <td>{item['name']}</td>
+            <td>{item['date']}</td>
+            <td>{item['expDateFridge']}</td>
+            <td>{item['expDateFreeze'] === "Invalid Date" ? "Should Not Be Frozen" : `${item['expDateFreeze']}`}</td>
+            <td>
+                <button 
+                type='button' 
+                value={index} 
+                onClick={updateList}>
+                    Remove
+                </button>
+            </td>
+        </tr>
     );
 }
