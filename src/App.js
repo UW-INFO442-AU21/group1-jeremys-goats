@@ -11,7 +11,7 @@ import About from'./Pages/About';
 import Resources from'./Pages/Resources';
 import Header from './Components/Header/Header';
 import React from "react";
-import ReactPlayer from 'react-player'
+// import ReactPlayer from 'react-player'
 
 
 function App() {
